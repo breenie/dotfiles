@@ -95,7 +95,8 @@ if [ -d $HOME/.dotfiles ]; then
 
   # Update Repo
   notice "Updating"
-  git pull origin master
+  # Not brave enough to call this yet :~
+  # git pull origin master
 
   # Backup
   notice "Backup up old files ($backupdir)"
