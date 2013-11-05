@@ -21,4 +21,8 @@ export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 
+# Colours in ant commands please
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
+
+# Store vagrant boxes in home
+export VAGRANT_DOTFILE_PATH=~/.vagrant
