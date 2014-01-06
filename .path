@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH:/usr/local/opt/ruby/bin"
 
 # Add brew php to the path, this may only bre
 # PATH="$(brew --prefix josegonzalez/php/php54)/bin:$PATH"

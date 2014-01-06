@@ -24,7 +24,6 @@ On my machine...
 $ ln -s /Volumes/projects/github/src/dotfiles ~/.dotfiles
 ```
 
-
 ## To reload
 
 ```
