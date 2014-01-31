@@ -1,0 +1,16 @@
+[user]
+    name = Chris Breen
+    email = chris.breen@filmclub.org
+[core]
+    excludesfile = ~/.gitignore_global
+    # Set git to ignore file permissions
+    fileMode = false
+[difftool "sourcetree"]
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path =
+[mergetool "sourcetree"]
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCA\
+L\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
+[http]
+
