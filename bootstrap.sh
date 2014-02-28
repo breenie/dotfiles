@@ -63,7 +63,7 @@ in_array() {
 #-----------------------------------------------------------------------------
 
 backupdir="$HOME/.dotfiles-backup/$(date "+%Y%m%d%H%M.%S")"
-dependencies=(git emacs)
+dependencies=(git)
 excluded=(. .. .git .gitignore bootstrap.sh README.md)
 
 
