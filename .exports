@@ -25,7 +25,10 @@ export LANG=en_GB.UTF-8
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
 
 # Store vagrant boxes in home
-export VAGRANT_DOTFILE_PATH=~/.vagrant
+# export VAGRANT_DOTFILE_PATH=~/.vagrant
+export VAGRANT_VMWARE_CLONE_DIRECTORY=~/.vmware
+
 
 # No virtual box thank you!
 export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
+o
