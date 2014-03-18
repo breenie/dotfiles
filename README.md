@@ -29,3 +29,13 @@ $ ln -s /Volumes/projects/github/src/dotfiles ~/.dotfiles
 ```
 $ ~/.dotfiles/bootstrap.sh
 ```
+
+## Vagrant VM plugins
+
+To update the vagrant VM plugins execute the following (this is necessary when updating vagrant):
+
+```sh
+$ vagrant plugin install vagrant-vmware-fusion
+$ vagrant plugin license vagrant-vmware-fusion ~/Dropbox/Documents/dev/licences/vagrant/license.lic
+$ vagrant plugin install vagrant-digitalocean
+```
