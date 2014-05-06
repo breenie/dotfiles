@@ -48,8 +48,8 @@ brew install sqlite
 brew tap homebrew/dupes
 brew install homebrew/dupes/grep
 brew tap josegonzalez/homebrew-php
-# brew install php54 php54-imagick php54-intl php54-twig php54-xdebug php54-apc php54-mcrypt php54-oauth php54-amqp php54-mongo
-brew install php55 php55-imagick php55-intl php55-twig php55-xdebug php55-apcu php55-mcrypt php55-oauth php55-amqp php55-mongo php55-gearman
+brew install php55 --with-gmp
+brew install php55-imagick php55-intl php55-twig php55-xdebug php55-apcu php55-mcrypt php55-oauth php55-amqp php55-mongo php55-gearman
 brew install composer
 
 brew install ansible
