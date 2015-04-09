@@ -1,6 +1,6 @@
 [user]
     name = Chris Breen
-    email = chris.breen@filmclub.org
+    email = chris@kurl.io
 [core]
     excludesfile = ~/.gitignore_global
     # Set git to ignore file permissions

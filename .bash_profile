@@ -9,7 +9,7 @@ done
 unset file
 
 if [ $SHLVL -eq 1 ]; then
-    osascript ~/.dotfiles/.script/RandomColorTerminal.scpt
+    rot_term
 fi
 
 

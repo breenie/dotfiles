@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+function rot_term() {
+    osascript ~/.dotfiles/.script/RandomColorTerminal.scpt
+}
