@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [ ! -d "${HOME}/.dokku" ]; then
+    git clone git@github.com:progrium/dokku.git ${HOME}/.dokku
+fi
+
+alias dokku='${HOME}/.dokku/contrib/dokku_client.sh'
