@@ -12,12 +12,16 @@ fi
 if tput setaf 1 &> /dev/null; then
 	tput sgr0
 	if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
+        LSCOLORS=GxFxCxDxBxegedabagaced
+
 		MAGENTA=$(tput setaf 9)
 		ORANGE=$(tput setaf 172)
 		GREEN=$(tput setaf 190)
 		PURPLE=$(tput setaf 141)
 		WHITE=$(tput setaf 0)
 	else
+        LSCOLORS=ExFxBxDxCxegedabagacad
+
 		MAGENTA=$(tput setaf 5)
 		ORANGE=$(tput setaf 4)
 		GREEN=$(tput setaf 2)
@@ -36,13 +40,15 @@ else
 	RESET="\033[m"
 fi
 
-export MAGENTA
-export ORANGE
-export GREEN
-export PURPLE
-export WHITE
-export BOLD
-export RESET
+# export MAGENTA
+# export ORANGE
+# export GREEN
+# export PURPLE
+# export WHITE
+# export BOLD
+# export RESET
+export CLICOLOR=1
+export LSCOLORS
 
 function parse_git_dirty() {
 	[[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo "*"
