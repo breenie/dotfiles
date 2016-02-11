@@ -40,13 +40,13 @@ else
 	RESET="\033[m"
 fi
 
-export MAGENTA
-export ORANGE
-export GREEN
-export PURPLE
-export WHITE
-export BOLD
-export RESET
+# export MAGENTA
+# export ORANGE
+# export GREEN
+# export PURPLE
+# export WHITE
+# export BOLD
+# export RESET
 export CLICOLOR=1
 export LSCOLORS
 
