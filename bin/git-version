@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# Get the current version of the directory
+
+git describe --tags --always HEAD

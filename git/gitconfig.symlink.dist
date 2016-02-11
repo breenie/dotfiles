@@ -1,10 +1,20 @@
 [user]
-    name = Chris Breen
-    email = chris@kurl.io
+    name = AUTHORNAME
+    email = AUTHOREMAIL
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = true
+
+[credential]
+    helper = GIT_CREDENTIAL_HELPER
+
 [core]
-    excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore
     # Set git to ignore file permissions
-    fileMode = false
+    # fileMode = false
+    editor = vim
 [difftool "sourcetree"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
     path =
@@ -13,4 +23,7 @@
 L\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
     trustExitCode = true
 [http]
+
+[help]
+    autocorrect = 1
 
