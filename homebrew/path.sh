@@ -1,3 +1,3 @@
 #!/bin/sh
 
-export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:/usr/local/bin:$PATH"
