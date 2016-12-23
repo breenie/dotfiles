@@ -1,0 +1,62 @@
+#!/bin/bash
+
+VAGRANT_CWD=${HOME}/dev/intofilm/highlander
+BUNDLE=${HOME}/Dropbox/dev/bundles/intofilm.sparsebundle
+
+start() {
+    VAGRANT_CWD=${VAGRANT_CWD} vagrant up
+}
+
+stop() {
+    VAGRANT_CWD=${VAGRANT_CWD} vagrant suspend
+}
+
+refresh() {
+    NOW=$(date +"%Y%m%d")
+    WD=${HOME}/Downloads
+
+    # These should probably use ~/.my.cnf then we can read stdout again 8).
+    DBNAME=filmclub_dev
+    DB_HOST=10.0.0.2
+    DB_USER=root
+    DB_PASS=root
+
+    anonymous download www_filmclub --no-interaction --working-dir=${WD}
+    unzip "${WD}/www_filmclub--${NOW}.zip" -d ${WD}
+    echo "drop database ${DBNAME};" | mysql -u ${DB_USER} -p${DB_PASS} -h ${DB_HOST} > /dev/null 2>&1
+    echo "create database ${DBNAME} charset UTF8;" | mysql -u ${DB_USER} -p${DB_PASS} -h ${DB_HOST} > /dev/null 2>&1
+    pv "${WD}/www_filmclub--${NOW}.sql" | mysql -u ${DB_USER} -p${DB_PASS} -h ${DB_HOST} ${DBNAME} > /dev/null 2>&1
+    rm -f "${WD}/www_filmclub--${NOW}.*"
+}
+
+mount() {
+    hdiutil mount ${BUNDLE} >/dev/null 2>&1
+}
+
+unmount() {
+    diskutil eject /Volumes/intofilm/
+}
+
+
+case "$1" in
+    start)
+        mount
+        start
+        ;;
+
+    stop)
+        stop
+        unmount
+        ;;
+
+    mount)
+        mount
+        ;;
+
+    refresh)
+        refresh
+        ;;
+    *)
+        echo $"Usage: $0 {start|stop|mount|refresh}"
+        exit 1
+esac
