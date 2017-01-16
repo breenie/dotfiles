@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VAGRANT_CWD=${HOME}/dev/intofilm/highlander
+VAGRANT_CWD=${HOME}/Drive/intofilm/src/highlander
 BUNDLE=${HOME}/Dropbox/dev/bundles/intofilm.sparsebundle
 
 start() {
