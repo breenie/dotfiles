@@ -59,7 +59,7 @@ do
   source ${file}
 done
 
-for file in ${DOT}/**/!(path|install|completion).sh
+for file in ${DOT}/**/!(path|install|completion|set-defaults).sh
 do
     source ${file}
 done
