@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-function rot_term() {
-    osascript ~/.dotfiles/.script/RandomColorTerminal.scpt
-}
-
-function excuse() {
-    curl -s -q programmingexcuses.com | grep "rel=\"nofollow\"" | xpath //center/a 2>/dev/null  | sed -e 's/<[^>]*>//g'
-}
