@@ -25,18 +25,8 @@ export HISTCONTROL=ignoredups
 # Make some commands not show up in history
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 
-# Locale
-export LC_ALL=en_GB.UTF-8
-export LANG=en_GB.UTF-8
-
 # Colours in ant commands please
 export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
-
-# Store vagrant boxes in home
-export VAGRANT_DOTFILE_PATH=~/.vagrant
-
-# No virtual box thank you!
-export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
