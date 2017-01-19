@@ -1,7 +1,8 @@
 #!/bin/bash
 
-VAGRANT_CWD=${HOME}/Drive/intofilm/src/highlander
-BUNDLE=${HOME}/Drive/intofilm/bundle/intofilm.sparsebundle
+IF_HOME="${HOME}/Dropbox/intofilm"
+VAGRANT_CWD=${IF_HOME}/src/highlander
+BUNDLE=${IF_HOME}/bundles/intofilm.sparsebundle
 
 start() {
     VAGRANT_CWD=${VAGRANT_CWD} vagrant up
