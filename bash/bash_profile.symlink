@@ -9,9 +9,9 @@ then
 fi
 
 # Make emacs the default editor
-export EDITOR="emacs"
-export SVN_EDITOR="emacs"
-export EDITOR="emacs"
+export EDITOR="vi"
+export SVN_EDITOR="vi"
+export EDITOR="vi"
 
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
@@ -25,6 +25,18 @@ export HISTCONTROL=ignoredups
 # Make some commands not show up in history
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 
+# Locale
+export LC_ALL=en_GB.UTF-8
+export LANG=en_GB.UTF-8
+
+# Colours in ant commands please
+export ANT_ARGS='-logger org.apache.tools.ant.listener.AnsiColorLogger'
+
+# Store vagrant boxes in home
+export VAGRANT_DOTFILE_PATH=~/.vagrant
+
+# No virtual box thank you!
+export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
@@ -81,4 +93,3 @@ fi
 #	[ -r "$file" ] && source "$file"
 #done
 #unset file
-
