@@ -15,6 +15,7 @@
     # Set git to ignore file permissions
     # fileMode = false
     editor = vim
+    ignoreCase = false
 [difftool "sourcetree"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
     path =
@@ -26,4 +27,3 @@ L\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 
 [help]
     autocorrect = 1
-
