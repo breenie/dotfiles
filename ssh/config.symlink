@@ -1,0 +1,6 @@
+host *
+    #controlmaster auto
+    #RequestTTY yes
+    controlpath /tmp/ssh-%r@%h:%p
+
+Include /Volumes/*/ssh/config
