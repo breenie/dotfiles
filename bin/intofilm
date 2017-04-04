@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IF_HOME="${HOME}/Dropbox/intofilm"
+IF_HOME="/Volumes/intofilm"
 VAGRANT_CWD=${IF_HOME}/src/highlander
 BUNDLE=${IF_HOME}/bundles/intofilm.sparsebundle
 
@@ -41,13 +41,13 @@ unmount() {
 
 case "$1" in
     start)
-        mount
+        #mount
         start
         ;;
 
     stop)
         stop
-        unmount
+        #unmount
         ;;
 
     mount)
