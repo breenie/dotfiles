@@ -42,6 +42,11 @@ brew install libpng
 brew install pcre
 brew install sqlite
 brew install rabbitmq-c
+brew install terrform
+brew install ripgrep
+brew install jq
+brew install awscli
+brew install bash-completion
 
 brew install brew-php-switcher
 
@@ -69,9 +74,10 @@ brew linkapps qt5
 brew tap homebrew/services
 brew tap phinze/cask
 brew tap caskroom/cask
+brew tap homebrew/completions
 
 # Add fancy quicklook plugins
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package
+brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package vagrant beyond-compare alfred 1password sequel-pro phpstorm sourcetree
 
 # Remove outdated versions from the cellar
 brew cleanup

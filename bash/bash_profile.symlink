@@ -68,12 +68,10 @@ done
 #compinit
 
 # load every completion after autocomplete loads
-#for file in ${DOT}/**/completion.sh
-#do
-#  source ${file}
-#done
-
-
+for file in ${DOT}/**/completion.sh
+do
+    source ${file}
+done
 
 if [ $SHLVL -eq 1 ]; then
     termbg
