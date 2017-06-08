@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IF_HOME="/Volumes/intofilm"
+IF_HOME="${HOME}/Projects/intofilm"
 VAGRANT_CWD=${IF_HOME}/src/highlander
 BUNDLE=${IF_HOME}/bundles/intofilm.sparsebundle
 
