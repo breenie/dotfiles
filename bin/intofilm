@@ -1,15 +1,21 @@
 #!/bin/bash
 
+set -o pipefail
+set -u
+
+function usage {
+    echo $"Usage: $0 {ssh|start|stop|refresh}"
+    exit 1
+}
+
 IF_HOME="${HOME}/Projects/intofilm"
 VAGRANT_CWD=${IF_HOME}/src/highlander
 BUNDLE=${IF_HOME}/bundles/intofilm.sparsebundle
 
-start() {
-    VAGRANT_CWD=${VAGRANT_CWD} vagrant up
-}
-
-stop() {
-    VAGRANT_CWD=${VAGRANT_CWD} vagrant suspend
+vagrant() {
+  local ACTION=$1
+  export VAGRANT_CWD=${VAGRANT_CWD}
+  /usr/local/bin/vagrant ${ACTION}
 }
 
 refresh() {
@@ -38,26 +44,23 @@ unmount() {
     diskutil eject /Volumes/intofilm/
 }
 
-
-case "$1" in
+action=${1:-}
+case "${action}" in
     start)
-        #mount
-        start
+        vagrant up
         ;;
 
     stop)
-        stop
-        #unmount
+        vagrant suspend
         ;;
 
-    mount)
-        mount
-        ;;
+    vagrant)
+      vagrant ${2:-status}
+      ;;
 
     refresh)
         refresh
         ;;
     *)
-        echo $"Usage: $0 {start|stop|mount|refresh}"
-        exit 1
+      usage
 esac

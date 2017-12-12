@@ -58,10 +58,11 @@ brew tap homebrew/dupes
 brew tap homebrew/versions
 brew install homebrew/dupes/grep
 brew tap homebrew/homebrew-php
-brew install --with-apache --with-homebrew-curl --with-homebrew-openssl --without-snmp --with-gmp php56
+brew install --with-httpd24 --with-homebrew-curl --with-homebrew-openssl --without-snmp --with-gmp php56
 brew install php56-twig php56-amqp php56-xdebug php56-apcu php56-imagick php56-mcrypt php56-oauth php56-pdo-pgsql
 
-brew install --with-apache --with-homebrew-curl --with-homebrew-openssl --without-snmp --with-gmp php70
+#brew install --with-httpd24 --with-homebrew-curl --with-gmp php70
+brew install --with-httpd --with-homebrew-curl --with-gmp php71
 
 brew install composer
 
