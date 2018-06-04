@@ -1,84 +1,94 @@
-#!/usr/bin/env bash
-
-# Make sure we’re using the latest Homebrew
-brew update
-
-# Upgrade any already-installed formulae
-brew upgrade
-
-# Install GNU core utilities (those that come with OS X are outdated)
-brew install coreutils
-echo "Don’t forget to add $(brew --prefix coreutils)/libexec/gnubin to \$PATH."
-# Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
-brew install findutils
-# Install Bash 4
-brew install bash
-
-# Install wget with IRI support
-brew install wget --enable-iri
-
-# Install everything else
-brew install ack
-brew install git
-#brew install imagemagick
-brew install lynx
-
-brew install node
-#brew install webkit2png
-
-brew install ant
-brew install automake
-brew install autoconf
-brew install libtool
-brew install pkg-config
-brew install unrar
-brew install xz
-brew install zlib
-brew install gettext
-brew install jpeginfo
-brew install mysql
-brew install readline
-brew install libpng
-brew install pcre
-brew install sqlite
-brew install rabbitmq-c
-brew install terrform
-brew install ripgrep
-brew install jq
-brew install awscli
-brew install bash-completion
-
-brew install brew-php-switcher
-
-# TODO check the syntax of this edit
-sed -i -e 's/^LoadModule php5_module libexec/apache2/libphp5.so/\#LoadModule php5_module libexec/apache2/libphp5.so/'
-
-# Install more recent versions of some OS X tools
-brew tap homebrew/dupes
-brew tap homebrew/versions
-brew install homebrew/dupes/grep
-brew tap homebrew/homebrew-php
-brew install --with-httpd24 --with-homebrew-curl --with-homebrew-openssl --without-snmp --with-gmp php56
-brew install php56-twig php56-amqp php56-xdebug php56-apcu php56-imagick php56-mcrypt php56-oauth php56-pdo-pgsql
-
-#brew install --with-httpd24 --with-homebrew-curl --with-gmp php70
-brew install --with-httpd --with-homebrew-curl --with-gmp php71
-
-brew install composer
-
-brew install ansible
-
-brew install qt5
-brew linkapps qt5
-
-# Add taps...
-brew tap homebrew/services
-brew tap phinze/cask
-brew tap caskroom/cask
-brew tap homebrew/completions
-
-# Add fancy quicklook plugins
-brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook suspicious-package vagrant beyond-compare alfred 1password sequel-pro phpstorm sourcetree
-
-# Remove outdated versions from the cellar
-brew cleanup
+tap "heroku/brew"
+tap "phinze/cask"
+tap "homebrew/dupes"
+tap "homebrew/fuse"
+tap "homebrew/completions"
+tap "homebrew/apache"
+tap "homebrew/core"
+tap "homebrew/versions"
+tap "homebrew/cask"
+tap "homebrew/bundle"
+tap "homebrew/services"
+brew "ack"
+brew "readline"
+brew "python@2", link: false
+brew "ansible"
+brew "ant"
+brew "argon2"
+brew "aspell"
+brew "autoconf"
+brew "automake"
+brew "aws-elasticbeanstalk"
+brew "xz"
+brew "python"
+brew "awscli"
+brew "bash"
+brew "bash-completion"
+brew "boot2docker"
+brew "brew-php-switcher"
+brew "brotli"
+brew "cheat"
+brew "composer"
+brew "coreutils"
+brew "credstash"
+brew "findutils"
+brew "node"
+brew "firebase-cli"
+brew "freetds"
+brew "gettext"
+brew "git"
+brew "git-flow"
+brew "glib"
+brew "libtool"
+brew "graphviz"
+brew "grep"
+brew "highlight"
+brew "htop"
+brew "libevent"
+brew "httpd"
+brew "jpeginfo"
+brew "jq"
+brew "libidn2"
+brew "libpq"
+brew "libzip"
+brew "mysql", restart_service: true
+brew "nmap"
+brew "nrg2iso"
+brew "p7zip"
+brew "php", link: false
+brew "php@5.6", link: true
+brew "pkg-config"
+brew "qt"
+brew "qcachegrind"
+brew "rabbitmq-c"
+brew "rack"
+brew "telnet"
+brew "terraform"
+brew "travis"
+brew "unrar"
+brew "watch"
+brew "wget"
+brew "yarn"
+brew "zlib"
+brew "heroku/brew/heroku"
+cask "betterzipql"
+cask "phinze/cask/1password"
+cask "phinze/cask/alfred"
+cask "phinze/cask/beyond-compare"
+cask "phinze/cask/google-chrome"
+cask "phinze/cask/java"
+cask "phinze/cask/phpstorm"
+cask "phinze/cask/qlcolorcode"
+cask "phinze/cask/qlimagesize"
+cask "phinze/cask/qlmarkdown"
+cask "phinze/cask/qlprettypatch"
+cask "phinze/cask/qlstephen"
+cask "phinze/cask/quicklook-csv"
+cask "phinze/cask/quicklook-json"
+cask "phinze/cask/sdformatter"
+cask "phinze/cask/sequel-pro"
+cask "phinze/cask/sourcetree"
+cask "phinze/cask/suspicious-package"
+cask "phinze/cask/vagrant"
+cask "phinze/cask/virtualbox"
+cask "phinze/cask/webpquicklook"
