@@ -3,9 +3,9 @@
 # TODO this needs work, the pasteboard thing is crappy.
 
 curl -s -X POST -H "Content-Type: application/json" \
-    -d "{\"form\":{\"url\":\"$@\"}}" https://kurl.uk/api/urls.json |
+    -d "{\"form\":{\"url\":\"$@\"}}" https://kurl.uk/api/urls |
     jq .short_url |
-    sed -e 's/^"//'  -e 's/"$//' |
+    sed -e 's/^"//' -e 's/"$//' |
     pbcopy
 
 echo "Copied $(pbpaste) to clipboard"
