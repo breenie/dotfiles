@@ -1,0 +1,13 @@
+#!/bin/sh
+
+INSTANCE_NAME="$1"
+PORT="$2"
+BASTION_HOST="$3"
+IDENTITY_FILE="$4"
+PROFILE="${5-default}"
+
+export AWS_DEFAULT_PROFILE=${PROFILE}
+
+HOST=$(aws ec2 describe-instances --filter Name=tag:Name,Values=${INSTANCE_NAME} --query Reservations[].Instances[].PrivateDnsName | jq -r ".[0]")
+
+ssh -A -i ${IDENTITY_FILE} -W "${HOST}":${PORT} ${BASTION_HOST}
