@@ -44,5 +44,5 @@ defaults write com.apple.Safari IncludeDevelopMenu -bool true
 defaults write com.apple.Safari WebKitDeveloperExtrasEnabledPreferenceKey -bool true
 defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.WebKit2DeveloperExtrasEnabled" -bool true
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
-defaults write com.apple.screencapture location ~/Dropbox/photos/screenshots
+defaults write com.apple.screencapture location ~/Desktop
 # defaults write -g NSRequiresAquaSystemAppearance -bool Yes
