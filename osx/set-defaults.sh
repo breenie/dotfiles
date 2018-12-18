@@ -34,6 +34,7 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
 # Set the dock icon size
 defaults write com.apple.dock tilesize -int 36
+defaults write com.apple.Dock size-immutable -bool yes
 
 # Hide Safari's bookmark bar.
 # defaults write com.apple.Safari ShowFavoritesBar -bool false
