@@ -1,3 +1,3 @@
 #!/bin/sh
 
-alias php='php -dzend_extension="$(pecl config-get ext_dir)/xdebug.so" -dxdebug.remote_autostart=1 -dxdebug.remote_start=1 -dxdebug.remote_connect_back=0 -dxdebug.remote_enable=1 -dxdebug.remote_host="localhost"'
+# alias php='php -dzend_extension="$(pecl config-get ext_dir)/xdebug.so" -dxdebug.remote_autostart=1 -dxdebug.remote_start=1 -dxdebug.remote_connect_back=0 -dxdebug.remote_enable=1 -dxdebug.remote_host="localhost"'
