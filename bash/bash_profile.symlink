@@ -73,9 +73,9 @@ do
     source ${file}
 done
 
-if [ $SHLVL -eq 1 ]; then
-    termbg
-fi
+#if [ $SHLVL -eq 1 ]; then
+#     termbg
+#fi
 
 #for file in ${HOME}/.{bash_prompt,o}; do
 #	[ -r "$file" ] && source "$file"
