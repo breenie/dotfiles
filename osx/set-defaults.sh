@@ -47,3 +47,6 @@ defaults write com.apple.Safari "com.apple.Safari.ContentPageGroupIdentifier.Web
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 defaults write com.apple.screencapture location ~/Desktop
 # defaults write -g NSRequiresAquaSystemAppearance -bool Yes
+
+# File extensions pls
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
