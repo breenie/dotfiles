@@ -1,4 +1,0 @@
-#!/bin/sh
-
-export COMPOSER_DISABLE_XDEBUG_WARN=1
-export COMPOSER_MEMORY_LIMIT=-1
