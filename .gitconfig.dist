@@ -25,5 +25,9 @@ L\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
     trustExitCode = true
 [http]
 
+[push]
+
+default = current
+
 [help]
     autocorrect = 1
