@@ -1,0 +1,16 @@
+#!/bin/sh
+
+function usage {
+  echo Gets the first running EC2 instance by 'Name' tag.
+  echo $"Usage: $(basename $0) <instance-name>"
+}
+
+PROFILE="${AWS_PROFILE-default}"
+NAME="$1"
+
+if [ "$#" -ne 1 ]; then
+  usage
+  exit 1
+fi
+
+aws ec2 describe-instances --filter Name=tag:Name,Values=${NAME} Name=instance-state-name,Values=running --query Reservations[].Instances[0] | jq -c -r ".[0]"
