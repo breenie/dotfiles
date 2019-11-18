@@ -10,10 +10,9 @@ export DOT=$HOME/.dotfiles
 export PATH="${PATH}:${DOT}/bin"
 
 # Check required paths for brew
-# export PATH="/usr/local/opt/ruby/bin:/usr/local/bin:$PATH"
-# export PATH="/usr/local/sbin:${PATH}"
+export PATH="/usr/local/sbin:${PATH}"
 export PATH="/usr/local/bin:${PATH}"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PATH="$PATH:/usr/local/opt/ruby/bin"
 export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 # Set editor
