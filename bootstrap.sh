@@ -130,33 +130,18 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
+  # for src in $(find -H "$DOTFILES_ROOT" -maxdepth 1 -name '.[^.]*' -not -path '.*.dist' -not -path '*.git' -not -path '*.aliases')
   for src in curlrc inputrc vimrc zshrc zshenv npmrc gitignore hushlogin gitconfig
   do 
+    # dst="$HOME/${src}"
+    # link_file "$DOTFILES_ROOT/$src" "$dst"
     dst="$HOME/.${src}"
     link_file "$DOTFILES_ROOT/.$src" "$dst"
   done
-
-  # for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
-  # do
-  #   dst="$HOME/.$(basename "${src%.*}")"
-  #   link_file "$src" "$dst"
-  # done
 }
 
 setup_gitconfig
 install_dotfiles
-
-# If we're on a Mac, let's install and setup homebrew.
-#if [ "$(uname -s)" == "Darwin" ]
-#then
-#  info "installing dependencies"
-#  if source bin/dot > /tmp/dotfiles-dot 2>&1
-#  then
-#    success "dependencies installed"
-#  else
-#    fail "error installing dependencies"
-#  fi
-#fi
 
 echo ''
 echo '  All installed!'
