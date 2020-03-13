@@ -7,13 +7,15 @@ export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 
 export DOT=$HOME/.dotfiles
-export PATH="${PATH}:${DOT}/bin"
+PATH="${PATH}:${DOT}/bin"
 
 # Check required paths for brew
-export PATH="/usr/local/sbin:${PATH}"
-export PATH="/usr/local/bin:${PATH}"
-export PATH="$PATH:/usr/local/opt/ruby/bin"
-export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+PATH="/usr/local/sbin:${PATH}"
+PATH="/usr/local/bin:${PATH}"
+PATH="$PATH:/usr/local/opt/ruby/bin"
+PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+export PATH="/usr/local/opt/python@3.8/bin:${PATH}"
 
 # Set editor
 export EDITOR="vi"
@@ -41,3 +43,8 @@ export ANT_ARGS="-logger org.apache.tools.ant.listener.AnsiColorLogger"
 
 # Store vagrant boxes in home
 export VAGRANT_DOTFILE_PATH=~/.vagrant
+
+export ANSIBLE_NOCOWS=1
+
+# Stop using less for awscli output
+export AWS_PAGER=""
