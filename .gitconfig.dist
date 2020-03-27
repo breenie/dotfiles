@@ -30,4 +30,7 @@ L\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 default = current
 
 [help]
-    autocorrect = 1
+autocorrect = 1
+
+[pager] 
+branch = false
