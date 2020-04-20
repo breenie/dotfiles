@@ -13,12 +13,10 @@ My dotfiles (with a little thievery from some other dotfiles :P).
 ```sh
 $ brew install zsh-completions
 $ brew install zsh-syntax-highlighting
-$ ./bootstrap.sh
+$ script/setup
 ```
 
 ## Configuring iTerm2
 
-* Preferences -> Profile -> Keys:
-  * Change `Presets...` to ` Natural Text editing`
-
-
+- Preferences -> Profile -> Keys:
+  - Change `Presets...` to `Natural Text editing`
