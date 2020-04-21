@@ -12,7 +12,7 @@ PATH="${PATH}:${DOT}/bin"
 # Check required paths for brew
 PATH="/usr/local/sbin:${PATH}"
 PATH="/usr/local/bin:${PATH}"
-PATH="$PATH:/usr/local/opt/ruby/bin"
+PATH="/usr/local/opt/ruby/bin:$PATH"
 PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 export PATH="/usr/local/opt/python@3.8/bin:${PATH}"
