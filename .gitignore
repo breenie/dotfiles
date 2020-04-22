@@ -1,8 +1,3 @@
-.gitconfig
-
-# Lazily add global ignores to the same file
-atlassian-ide-plugin.xml
-.DS_Store
-.idea/
-.vscode/
-.history/
+!ssh/*.pub
+!ssh/config
+ssh/

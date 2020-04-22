@@ -1,0 +1,81 @@
+Host *
+  controlpath /tmp/ssh-%r@%h:%p
+  AddKeysToAgent yes
+  UseKeychain yes
+
+Host stash.intranet.intofilm.org
+  RequestTTY no
+
+# vagrant hosts
+Host 10.0.0.2
+    ForwardAgent yes
+
+Host bastion.*.fnuk.org
+    ForwardAgent yes
+    IdentityFile ~/.ssh/meatballs
+    Port 22
+    User ec2-user
+
+Host bastion.stage.intofilm.org
+    ForwardAgent yes
+    IdentityFile ~/.ssh/intofilm-stage
+    Port 22
+    User ec2-user
+
+Host bastion.lms.intofilm.org
+    ForwardAgent yes
+    IdentityFile ~/.ssh/intofilm-lms
+    Port 22
+    User ec2-user
+
+Host bastion.intofilm.org
+    ForwardAgent yes
+    IdentityFile ~/.ssh/intofilm-production
+    Port 22
+    User ec2-user
+
+Host *-stage
+    User ec2-user
+    ProxyCommand aws-bastion %h %p ec2-user@bastion.stage.fnuk.org ~/.ssh/meatballs intofilm-legacy
+
+Host *-prod
+    User ec2-user
+    ProxyCommand aws-bastion %h %p ec2-user@bastion.prod.fnuk.org ~/.ssh/meatballs intofilm-legacy
+
+# AWS Atlassian apps
+Host bastion.intranet.intofilm.org
+    HostName bastion.intranet.intofilm.org
+    # I have no idea why I named this key thusly but it matches that in AWS to
+    # avoid confusion. It could be due to vagrant's naming of SSH keys.
+    IdentityFile ~/.ssh/insecure-deployer
+    ForwardAgent yes
+    Port 22
+    User ec2-user
+
+Host bamboo
+    Hostname 10.128.0.90
+    IdentityFile ~/.ssh/insecure-deployer
+    ForwardAgent yes
+    User ec2-user
+    ProxyCommand ssh -W %h:%p bastion.intranet.intofilm.org
+
+Host confluence
+    Hostname 10.128.0.72
+    IdentityFile ~/.ssh/insecure-deployer
+    ForwardAgent yes
+    User ec2-user
+    ProxyCommand ssh -W %h:%p bastion.intranet.intofilm.org
+
+Host jira
+    Hostname 10.128.1.58
+    IdentityFile ~/.ssh/insecure-deployer
+    ForwardAgent yes
+    User ec2-user
+    ProxyCommand ssh -W %h:%p bastion.intranet.intofilm.org
+
+Host stash
+    Hostname 10.128.0.254
+    IdentityFile ~/.ssh/insecure-deployer
+    ForwardAgent yes
+    User ec2-user
+    ProxyCommand ssh -W %h:%p bastion.intranet.intofilm.org

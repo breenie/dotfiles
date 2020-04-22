@@ -28,29 +28,6 @@ fail () {
   exit
 }
 
-setup_gitconfig () {
-  if ! [ -f .gitconfig ]
-  then
-    info 'setup gitconfig'
-
-    git_credential='cache'
-    if [ "$(uname -s)" == "Darwin" ]
-    then
-      git_credential='osxkeychain'
-    fi
-
-    user ' - What is your github author name?'
-    read -e git_authorname
-    user ' - What is your github author email?'
-    read -e git_authoremail
-
-    sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" -e "s/GIT_CREDENTIAL_HELPER/$git_credential/g" .gitconfig.dist > .gitconfig
-
-    success 'gitconfig'
-  fi
-}
-
-
 link_file () {
   local src=$1 dst=$2
 
@@ -132,16 +109,15 @@ install_dotfiles () {
   local overwrite_all=false backup_all=false skip_all=false
 
   # for src in $(find -H "$DOTFILES_ROOT" -maxdepth 1 -name '.[^.]*' -not -path '.*.dist' -not -path '*.git' -not -path '*.aliases')
-  for src in curlrc inputrc vimrc zshrc zshenv npmrc gitignore hushlogin gitconfig
+  for src in curlrc inputrc vimrc zshrc zshenv npmrc gitignore hushlogin gitconfig ssh
   do 
     # dst="$HOME/${src}"
     # link_file "$DOTFILES_ROOT/$src" "$dst"
     dst="$HOME/.${src}"
-    link_file "$DOTFILES_ROOT/.$src" "$dst"
+    link_file "$DOTFILES_ROOT/$src" "$dst"
   done
 }
 
-setup_gitconfig
 install_dotfiles
 
 echo ''

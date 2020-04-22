@@ -1,6 +1,6 @@
 [user]
-    name = AUTHORNAME
-    email = AUTHOREMAIL
+    name = Chris Breen
+    email = chris@kurl.co.uk
 [color]
     diff = auto
     status = auto
@@ -8,7 +8,7 @@
     ui = true
 
 [credential]
-    helper = GIT_CREDENTIAL_HELPER
+    helper = osxkeychain
 
 [core]
     excludesfile = ~/.gitignore
@@ -26,11 +26,15 @@ L\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 [http]
 
 [push]
-
 default = current
 
 [help]
-autocorrect = 1
+    autocorrect = 1
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 
 [pager] 
 branch = false
