@@ -11,5 +11,5 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source $DOT/.aliases
+source $DOT/aliases
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
