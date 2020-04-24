@@ -4,3 +4,4 @@
 cd $(dirname $0)/..
 
 script/onepassword-secrets
+script/install-vscode-extensions
