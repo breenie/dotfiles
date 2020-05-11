@@ -12,24 +12,28 @@ Host 10.0.0.2
 
 Host bastion.*.fnuk.org
     ForwardAgent yes
+    IdentitiesOnly yes
     IdentityFile ~/.ssh/meatballs
     Port 22
     User ec2-user
 
 Host bastion.stage.intofilm.org
     ForwardAgent yes
+    IdentitiesOnly yes
     IdentityFile ~/.ssh/intofilm-stage
     Port 22
     User ec2-user
 
 Host bastion.lms.intofilm.org
     ForwardAgent yes
+    IdentitiesOnly yes
     IdentityFile ~/.ssh/intofilm-lms
     Port 22
     User ec2-user
 
 Host bastion.intofilm.org
     ForwardAgent yes
+    IdentitiesOnly yes
     IdentityFile ~/.ssh/intofilm-production
     Port 22
     User ec2-user
@@ -45,6 +49,7 @@ Host *-prod
 # AWS Atlassian apps
 Host bastion.intranet.intofilm.org
     HostName bastion.intranet.intofilm.org
+    IdentitiesOnly yes
     # I have no idea why I named this key thusly but it matches that in AWS to
     # avoid confusion. It could be due to vagrant's naming of SSH keys.
     IdentityFile ~/.ssh/insecure-deployer
@@ -54,6 +59,7 @@ Host bastion.intranet.intofilm.org
 
 Host bamboo
     Hostname 10.128.0.90
+    IdentitiesOnly yes
     IdentityFile ~/.ssh/insecure-deployer
     ForwardAgent yes
     User ec2-user
@@ -61,6 +67,7 @@ Host bamboo
 
 Host confluence
     Hostname 10.128.0.72
+    IdentitiesOnly yes
     IdentityFile ~/.ssh/insecure-deployer
     ForwardAgent yes
     User ec2-user
@@ -68,6 +75,7 @@ Host confluence
 
 Host jira
     Hostname 10.128.1.58
+    IdentitiesOnly yes
     IdentityFile ~/.ssh/insecure-deployer
     ForwardAgent yes
     User ec2-user
@@ -75,6 +83,7 @@ Host jira
 
 Host stash
     Hostname 10.128.0.254
+    IdentitiesOnly yes
     IdentityFile ~/.ssh/insecure-deployer
     ForwardAgent yes
     User ec2-user
