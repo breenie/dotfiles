@@ -4,15 +4,11 @@ My dotfiles (with a little thievery from some other dotfiles :P).
 
 ## Requesites
 
-- [Brew](https://brew.sh/)
-- [iTerm2](https://iterm2.com/)
-- [oh-my-zsh](https://ohmyz.sh/)
+This assumes that the machine has been configured using [Strap](https://github.com/MikeMcQuaid/strap).
 
-## Bootstrap
+## Installation
 
 ```sh
-$ brew install zsh-completions
-$ brew install zsh-syntax-highlighting
 $ script/setup
 ```
 
@@ -20,3 +16,7 @@ $ script/setup
 
 - Preferences -> Profile -> Keys:
   - Change `Presets...` to `Natural Text editing`
+
+## TODO
+
+- Automatically configure iTerm preferences
