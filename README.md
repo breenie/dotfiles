@@ -2,7 +2,7 @@
 
 My dotfiles (with a little thievery from some other dotfiles :P).
 
-## Requesites
+## Requisites
 
 This assumes that the machine has been configured using [Strap](https://github.com/MikeMcQuaid/strap).
 
