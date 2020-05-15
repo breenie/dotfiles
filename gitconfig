@@ -38,3 +38,5 @@ default = current
 
 [pager] 
 branch = false
+[github]
+	user = breenie
