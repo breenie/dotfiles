@@ -16,3 +16,4 @@ source $DOT/aliases
 
 # When I say force, I mean force!
 setopt rm_star_silent
+setopt +o nomatch
