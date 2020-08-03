@@ -1,5 +1,4 @@
 {
-  "workbench.colorTheme": "Solarized Dark",
   "workbench.startupEditor": "newUntitledFile",
   "editor.codeLens": false,
   "explorer.confirmDragAndDrop": false,
@@ -9,7 +8,7 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
-    "editor.defaultFormatter": "HookyQR.beautify"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
@@ -31,10 +30,17 @@
     "exclude": [".terraform/**/*", "**/.terraform/**/*"]
   },
   "terraform.languageServer": {
-    "enabled": true,
-    "args": []
+    "external": true,
+    "args": [
+      "serve"
+    ]
   },
   "editor.autoClosingBrackets": "never",
   "workbench.editor.untitled.labelFormat": "name",
-  "prettier.arrowParens": "avoid"
+  "prettier.arrowParens": "avoid",
+  "explorer.openEditors.visible": 0,
+  "workbench.colorTheme": "GitHub Dark",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
