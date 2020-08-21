@@ -40,3 +40,5 @@ default = current
 branch = false
 [github]
 	user = breenie
+[pull]
+	rebase = false
