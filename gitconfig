@@ -1,44 +1,48 @@
 [user]
-    name = Chris Breen
-    email = chris@kurl.co.uk
+name = Chris Breen
+email = chris@kurl.co.uk
 [color]
-    diff = auto
-    status = auto
-    branch = auto
-    ui = true
+diff = auto
+status = auto
+branch = auto
+ui = true
 
 [credential]
-    helper = osxkeychain
+helper = osxkeychain
 
 [core]
-    excludesfile = ~/.gitignore
-    # Set git to ignore file permissions
-    # fileMode = false
-    editor = vim
-    ignoreCase = false
+excludesfile = ~/.gitignore
+# Set git to ignore file permissions
+# fileMode = false
+editor = vim
+ignoreCase = false
 [difftool "sourcetree"]
-    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-    path =
+cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+path =
+
 [mergetool "sourcetree"]
-    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCA\
-L\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-    trustExitCode = true
+cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+trustExitCode = true
+
 [http]
 
 [push]
 default = current
 
 [help]
-    autocorrect = 1
+autocorrect = 1
+
 [filter "lfs"]
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
+process = git-lfs filter-process
+required = true
+clean = git-lfs clean -- %f
+smudge = git-lfs smudge -- %f
 
 [pager] 
 branch = false
+
 [github]
-	user = breenie
+user = breenie
+
 [pull]
-	rebase = false
+rebase = false
