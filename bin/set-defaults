@@ -59,6 +59,12 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 # Show battery percentage in the menu bar
 defaults write com.apple.menuextra.battery ShowPercent -string "YES"
 
+# Show battery in the menu bar
+defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.battery" -bool true
+
+# Show bluetooth in the menu bar
+defaults write com.apple.systemuiserver "NSStatusItem Visible com.apple.menuextra.bluetooth" -bool true
+
 ###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
@@ -102,6 +108,9 @@ defaults write NSGlobalDomain AppleMetricUnits -bool true
 
 # Set the timezone; see `sudo systemsetup -listtimezones` for other values
 sudo systemsetup -settimezone "Europe/London" > /dev/null
+
+# Play feedback when audio is changd
+defaults write com.apple.sound.beep.feedback -bool true
 
 ###############################################################################
 # Energy saving                                                               #
