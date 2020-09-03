@@ -1,3 +1,4 @@
 !ssh/*.pub
 !ssh/config
 ssh/*
+config/configstore/*
