@@ -38,6 +38,10 @@ Host bastion.intofilm.org
     Port 22
     User ec2-user
 
+Host bourne-stage
+    User ec2-user
+    ProxyCommand aws-bastion %h %p ec2-user@bastion.stage.intofilm.org ~/.ssh/intofilm-stage intofilm-development
+
 Host *-intofilm-web-stage
     User ec2-user
     ProxyCommand aws-bastion %h %p ec2-user@bastion.stage.intofilm.org ~/.ssh/intofilm-stage intofilm-development
