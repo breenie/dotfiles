@@ -3,3 +3,5 @@ atlassian-ide-plugin.xml
 .idea/
 .vscode/
 .history/
+# see bin/nosync
+*.nosync
