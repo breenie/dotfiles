@@ -42,6 +42,10 @@ Host bourne-stage
     User ec2-user
     ProxyCommand aws-bastion %h %p ec2-user@bastion.stage.intofilm.org ~/.ssh/intofilm-stage intofilm-development
 
+Host bourne-production
+    User ec2-user
+    ProxyCommand aws-bastion %h %p ec2-user@bastion.intofilm.org ~/.ssh/intofilm-production intofilm-production
+
 Host *-intofilm-web-stage
     User ec2-user
     ProxyCommand aws-bastion %h %p ec2-user@bastion.stage.intofilm.org ~/.ssh/intofilm-stage intofilm-development
