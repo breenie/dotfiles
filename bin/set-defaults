@@ -326,6 +326,12 @@ defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
 defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool true
 
 ###############################################################################
+# Git Tower                                                                   #
+###############################################################################
+
+defaults write com.fournova.Tower3 GTUserDefaultsWorkingCopyViewMode -bool true
+
+###############################################################################
 # 1Password                                                                   #
 ###############################################################################
 
