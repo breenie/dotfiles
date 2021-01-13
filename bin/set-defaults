@@ -360,10 +360,7 @@ defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 64
 "
 
 # Set the alfed sync folder
-defaults write com.runningwithcrayons.Alfred-Preferences syncfolder -string "~/Tresors/docs/alfredapp"
-
-# Set the alfred theme
-defaults write com.runningwithcrayons.Alfred-Preferences themeEditorBackground -string  "Catalina.heic"
+defaults write com.runningwithcrayons.Alfred-Preferences syncfolder -string "~/.dotfiles/alfredapp"
 
 for app in "Activity Monitor" \
 	"Calendar" \
