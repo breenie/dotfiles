@@ -5,3 +5,4 @@ atlassian-ide-plugin.xml
 .history/
 # see bin/nosync
 *.nosync
+.php_cs.cache
