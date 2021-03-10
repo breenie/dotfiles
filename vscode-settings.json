@@ -39,8 +39,9 @@
   "workbench.editor.untitled.labelFormat": "name",
   "prettier.arrowParens": "avoid",
   "explorer.openEditors.visible": 0,
-  "workbench.colorTheme": "GitHub Dark",
+  "workbench.colorTheme": "Dracula",
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "editor.linkedEditing": true
 }

@@ -48,3 +48,6 @@ export ANSIBLE_NOCOWS=1
 
 # Stop using less for awscli output
 export AWS_PAGER=""
+
+# Ensure serverless looks for profiles from ~/.aws/config and not ~/.aws/credentials
+export AWS_SDK_LOAD_CONFIG=true

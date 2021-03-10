@@ -1,48 +1,77 @@
+[core]
+	excludesfile = ~/.gitignore
+	# Set git to ignore file permissions
+	# fileMode = false
+	editor = vim
+	ignoreCase = false
+
 [user]
-name = Chris Breen
-email = chris@kurl.co.uk
+	name = Chris Breen
+	email = breenie@users.noreply.github.com
+
 [color]
-diff = auto
-status = auto
-branch = auto
-ui = true
+	diff = auto
+	status = auto
+	branch = auto
+	ui = true
 
 [credential]
-helper = osxkeychain
+	helper = osxkeychain
 
-[core]
-excludesfile = ~/.gitignore
-# Set git to ignore file permissions
-# fileMode = false
-editor = vim
-ignoreCase = false
-[difftool "sourcetree"]
-cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-path =
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 
-[mergetool "sourcetree"]
-cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-trustExitCode = true
+[difftool "Araxis"]
+	path = /Applications/Araxis Merge.app/Contents/Utilities/compare
+
+[diff]
+	tool = Kaleidoscope
+
+[difftool]
+	prompt = false
+
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+
+[mergetool "Araxis"]
+	path = /Applications/Araxis Merge.app/Contents/Utilities/compare
+
+[mergetool]
+	prompt = false
+	keepBackup = true
+
+[merge]
+	tool = Kaleidoscope
+
+[github]
+	user = breenie
 
 [http]
 
 [push]
-default = current
+	default = current
 
 [help]
-autocorrect = 1
+	autocorrect = 1
 
 [filter "lfs"]
-process = git-lfs filter-process
-required = true
-clean = git-lfs clean -- %f
-smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 
 [pager] 
-branch = false
+	branch = false
 
 [github]
-user = breenie
+	user = breenie
 
 [pull]
-rebase = false
+	rebase = false
+
+[init]
+	# defaultBranch = main
+
+[alias]
+	ver = describe --tags --always HEAD

@@ -24,10 +24,10 @@ Host bastion.stage.intofilm.org
     Port 22
     User ec2-user
 
-Host bastion.lms.intofilm.org
+Host bastion.canary.intofilm.org
     ForwardAgent yes
     IdentitiesOnly yes
-    IdentityFile ~/.ssh/intofilm-lms
+    IdentityFile ~/.ssh/intofilm-canary
     Port 22
     User ec2-user
 
@@ -41,6 +41,10 @@ Host bastion.intofilm.org
 Host bourne-stage
     User ec2-user
     ProxyCommand aws-bastion %h %p ec2-user@bastion.stage.intofilm.org ~/.ssh/intofilm-stage intofilm-development
+
+Host bourne-canary
+    User ec2-user
+    ProxyCommand aws-bastion %h %p ec2-user@bastion.canary.intofilm.org ~/.ssh/intofilm-canary intofilm-development
 
 Host bourne-production
     User ec2-user

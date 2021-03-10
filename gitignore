@@ -6,3 +6,4 @@ atlassian-ide-plugin.xml
 # see bin/nosync
 *.nosync
 .php_cs.cache
+*__MACOSX*
