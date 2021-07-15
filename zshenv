@@ -7,15 +7,6 @@ export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 
 export DOT=$HOME/.dotfiles
-PATH="${PATH}:${DOT}/bin"
-
-# Check required paths for brew
-PATH="/usr/local/sbin:${PATH}"
-PATH="/usr/local/bin:${PATH}"
-PATH="/usr/local/opt/ruby/bin:$PATH"
-PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-
-export PATH="/usr/local/opt/python@3.8/bin:${PATH}"
 
 # Set editor
 export EDITOR="vi"

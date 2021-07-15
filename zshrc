@@ -9,6 +9,14 @@ plugins=(
   aws
 )
 
+PATH="/usr/local/opt/python@3.8/bin:${PATH}"
+PATH="/usr/local/opt/ruby/bin:$PATH"
+PATH="/opt/homebrew/sbin:${PATH}"
+PATH="/opt/homebrew/bin:${PATH}"
+PATH="${PATH}:${DOT}/bin"
+
+export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
 source $ZSH/oh-my-zsh.sh
 source $DOT/aliases
 # source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
