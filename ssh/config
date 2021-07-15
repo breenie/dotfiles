@@ -94,7 +94,7 @@ Host confluence
     ProxyCommand ssh -W %h:%p bastion.intranet.intofilm.org
 
 Host jira
-    Hostname 10.128.1.58
+    HostName 10.128.1.207
     IdentitiesOnly yes
     IdentityFile ~/.ssh/insecure-deployer
     ForwardAgent yes
