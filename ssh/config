@@ -3,6 +3,10 @@ Host *
   AddKeysToAgent yes
   UseKeychain yes
 
+Host bitbucket.org
+    HostName bitbucket.org
+    ForwardAgent yes
+
 Host stash.intranet.intofilm.org
   RequestTTY no
 
@@ -46,9 +50,21 @@ Host bourne-canary
     User ec2-user
     ProxyCommand aws-bastion %h %p ec2-user@bastion.canary.intofilm.org ~/.ssh/intofilm-canary intofilm-development
 
+Host winston-canary
+    User ec2-user
+    ProxyCommand aws-bastion %h %p ec2-user@bastion.canary.intofilm.org ~/.ssh/intofilm-canary intofilm-development
+
 Host bourne-production
     User ec2-user
     ProxyCommand aws-bastion %h %p ec2-user@bastion.intofilm.org ~/.ssh/intofilm-production intofilm-production
+
+Host winston-stage
+    User ec2-user
+    ProxyCommand aws-bastion %h %p ec2-user@bastion.stage.intofilm.org ~/.ssh/intofilm-stage intofilm-development
+
+Host *-intofilm-web-canary
+    User ec2-user
+    ProxyCommand aws-bastion %h %p ec2-user@bastion.canary.intofilm.org ~/.ssh/intofilm-canary intofilm-development
 
 Host *-intofilm-web-stage
     User ec2-user
@@ -79,30 +95,6 @@ Host bastion.intranet.intofilm.org
 
 Host bamboo
     Hostname 10.128.0.90
-    IdentitiesOnly yes
-    IdentityFile ~/.ssh/insecure-deployer
-    ForwardAgent yes
-    User ec2-user
-    ProxyCommand ssh -W %h:%p bastion.intranet.intofilm.org
-
-Host confluence
-    Hostname 10.128.0.72
-    IdentitiesOnly yes
-    IdentityFile ~/.ssh/insecure-deployer
-    ForwardAgent yes
-    User ec2-user
-    ProxyCommand ssh -W %h:%p bastion.intranet.intofilm.org
-
-Host jira
-    HostName 10.128.1.207
-    IdentitiesOnly yes
-    IdentityFile ~/.ssh/insecure-deployer
-    ForwardAgent yes
-    User ec2-user
-    ProxyCommand ssh -W %h:%p bastion.intranet.intofilm.org
-
-Host stash
-    Hostname 10.128.0.254
     IdentitiesOnly yes
     IdentityFile ~/.ssh/insecure-deployer
     ForwardAgent yes
