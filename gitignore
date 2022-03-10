@@ -7,3 +7,4 @@ atlassian-ide-plugin.xml
 *.nosync
 .php_cs.cache
 *__MACOSX*
+.oracle_jre_usage
