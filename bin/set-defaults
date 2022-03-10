@@ -206,6 +206,7 @@ chflags nohidden ~/Library
 ###############################################################################
 
 # Configure the dock
+defaults write com.apple.dock autohide -int 0
 defaults write com.apple.dock tilesize -int 36
 defaults write com.apple.dock largesize -int 71
 defaults write com.apple.dock magnification -bool yes
