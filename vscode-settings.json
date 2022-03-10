@@ -10,6 +10,11 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[python]": {
+    "editor.defaultFormatter": null
+  },
+  "python.formatting.blackArgs": ["--line-length", "120"],
+  "python.formatting.provider": "black",
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "editor.minimap.enabled": false,
@@ -31,17 +36,42 @@
   },
   "terraform.languageServer": {
     "external": true,
-    "args": [
-      "serve"
-    ]
+    "args": ["serve"]
   },
   "editor.autoClosingBrackets": "never",
   "workbench.editor.untitled.labelFormat": "name",
   "prettier.arrowParens": "avoid",
   "explorer.openEditors.visible": 0,
-  "workbench.colorTheme": "Dracula",
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.linkedEditing": true
+  "editor.linkedEditing": true,
+  "salesforcedx-vscode-soql.experimental.validateQueries": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.suggest.autoImports": false,
+  "editor.folding": false,
+  "highlight.regexFlags": "gi",
+  "highlight.regexes": {
+    "((?:<!-- *)?(?:#|// @|//|./\\*+|<!--|--|\\* @|{!|{{!--|{{!) *TODO(?:\\s*\\([^)]+\\))?:?)((?!\\w)(?: *-->| *\\*/| *!}| *--}}| *}}|(?= *(?:[^:]//|/\\*+|<!--|@|--|{!|{{!--|{{!))|(?: +[^\\n@]*?)(?= *(?:[^:]//|/\\*+|<!--|@|--(?!>)|{!|{{!--|{{!))|(?: +[^@\\n]+)?))": {
+      "filterFileRegex": ".*(?<!CHANGELOG.md)$",
+      "decorations": [
+        {
+          "overviewRulerColor": "#ffcc00",
+          "backgroundColor": "#ff0099",
+          "color": "#1f1f1f",
+          "fontWeight": "bold"
+        },
+        {
+          "backgroundColor": "#ff0099",
+          "color": "#1f1f1f"
+        }
+      ]
+    }
+  },
+  "editor.suggest.showWords": false,
+  "prettier.requireConfig": true,
+  "workbench.colorTheme": "GitHub Dark Dimmed",
+  "workbench.experimental.layoutControl.enabled": true
 }
