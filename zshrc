@@ -14,6 +14,7 @@ PATH="/usr/local/opt/ruby/bin:$PATH"
 PATH="/opt/homebrew/sbin:${PATH}"
 PATH="/opt/homebrew/bin:${PATH}"
 PATH="${PATH}:${DOT}/bin"
+PATH="${PATH}:/Applications/Araxis Merge.app/Contents/Utilities"
 
 export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
