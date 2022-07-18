@@ -1,0 +1,58 @@
+#!/bin/sh
+
+function usage {
+  echo Output a jwt for a specfic environment
+  echo 
+  echo Setting an environment variable for use with HTTPie and --auth-type=jwt
+  echo 
+  echo "\$ export JWT_AUTH_TOKEN=\$($(basename $0)) stage [user_id]"
+  echo "\$ http --auth-type=jwt broker.stage.intofilm.org/films/abcdef666"
+  echo 
+  echo $"Usage: $(basename $0) <environmnent> [user_id] [territory] [user_agent]"
+}
+
+if ! command -v jwt >/dev/null
+then
+  # brew tap mike-engel/jwt-cli
+  # brew install jwt-cli
+  echo "Install jwt-cli first!" >&2
+  exit 1
+fi
+
+env=${1}
+user_id=${2}
+territory=${3}
+user_agent=${4}
+AWS_PROFILE="intofilm-development"
+
+if [[ "prod" == "$env" ]]
+then
+  env=production
+fi
+
+if [[ "me" == "$user_id" ]]
+then
+  user_id=1b6884338fe88235371dc23b01cacd7ac72d8e2f
+fi
+
+
+case "$env" in 
+  production) AWS_PROFILE="intofilm-production" ;;
+  *) AWS_PROFILE="intofilm-development" ;;
+esac
+
+if [ "$#" -lt 1 ]; then
+  usage
+  exit 1
+fi
+
+export AWS_PROFILE=$AWS_PROFILE
+
+secret=$(aws ssm get-parameter --name "/genesis/www-intofilm-web-${env}/INTOFILM_VOD_API_AUTH_KEY_PRIVATE" | jq -cr ".Parameter.Value")
+
+payload=$(echo "{\"user_id\": \"${user_id}\", \"territory\": \"${territory}\", \"user_agent\": \"${user_agent}\"}" | jq 'del(.[] | select(. == "" or . == null))')
+
+TMP=$(mktemp -d)
+echo $secret | base64 -d > "$TMP"/RS256.pem
+
+jwt encode --alg RS256 --exp 1year --secret "@${TMP}/RS256.pem" "{\"https://www.intofilm.org/jwt/claims\":${payload}}"
