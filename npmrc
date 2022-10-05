@@ -1,2 +1,5 @@
 save=true
 save-exact=true
+@intofilm:registry=https://registry.npmjs.org/
+//registry.npmjs.org/:_authToken=e8d50c03-4a8d-4922-86e2-67a1da21fc48
+access=public
