@@ -8,21 +8,9 @@ DOTFILES_ROOT=$(pwd -P)
 
 set -e
 
-[ $(uname -s) = "Darwin" ] && export MACOS=1 && export UNIX=1
-[ $(uname -s) = "Linux" ] && export LINUX=1 && export UNIX=1
-uname -s | grep -q "_NT-" && export WINDOWS=1
-
-if [ $MACOS ]
-then
-  VSCODE="$HOME/Library/Application Support/Code/User"
-elif [ $LINUX ]
-then
-  VSCODE="$HOME/.config/Code/User"
-elif [ $WINDOWS ]
-then
-  VSCODE="$APPDATA/Code/User"
-fi
-
+# [ $(uname -s) = "Darwin" ] && export MACOS=1 && export UNIX=1
+# [ $(uname -s) = "Linux" ] && export LINUX=1 && export UNIX=1
+# uname -s | grep -q "_NT-" && export WINDOWS=1
 
 echo ''
 
@@ -132,9 +120,6 @@ install_dotfiles () {
     dst="$HOME/.${src}"
     link_file "$DOTFILES_ROOT/$src" "$dst"
   done
-
-  mkdir -p "$VSCODE"
-  link_file "$DOTFILES_ROOT/vscode-settings.json" "$VSCODE/settings.json"
 }
 
 install_dotfiles
