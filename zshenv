@@ -43,3 +43,8 @@ export AWS_PAGER=""
 
 # Ensure serverless looks for profiles from ~/.aws/config and not ~/.aws/credentials
 export AWS_SDK_LOAD_CONFIG=true
+
+# NPM settings, because I'm stupid and pushed scope tokens to source control 🙈
+export NPM_CONFIG_SAVE=true
+export NPM_CONFIG_SAVE_EXACT=true
+export NPM_CONFIG_ACCESS=public
