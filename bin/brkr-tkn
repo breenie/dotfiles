@@ -48,7 +48,7 @@ fi
 
 export AWS_PROFILE=$AWS_PROFILE
 
-secret=$(aws ssm get-parameter --name "/genesis/www-intofilm-web-${env}/INTOFILM_VOD_API_AUTH_KEY_PRIVATE" | jq -cr ".Parameter.Value")
+secret=$(aws ssm get-parameter --name "/genesis/www-intofilm-web-${env}/INTOFILM_BROKER_API_AUTH_KEY_PRIVATE" | jq -cr ".Parameter.Value")
 
 payload=$(echo "{\"user_id\": \"${user_id}\", \"territory\": \"${territory}\", \"user_agent\": \"${user_agent}\"}" | jq 'del(.[] | select(. == "" or . == null))')
 
