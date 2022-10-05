@@ -8,3 +8,4 @@ atlassian-ide-plugin.xml
 .php_cs.cache
 *__MACOSX*
 .oracle_jre_usage
+.samples
