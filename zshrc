@@ -15,6 +15,7 @@ PATH="/opt/homebrew/sbin:${PATH}"
 PATH="/opt/homebrew/bin:${PATH}"
 PATH="${PATH}:${DOT}/bin"
 PATH="${PATH}:/Applications/Araxis Merge.app/Contents/Utilities"
+PATH="${N_PREFIX}/bin:${PATH}"
 
 export PATH="${PATH}:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 

@@ -7,6 +7,7 @@ export LC_ALL=en_GB.UTF-8
 export LANG=en_GB.UTF-8
 
 export DOT=$HOME/.dotfiles
+export N_PREFIX=$HOME/.n
 
 # Set editor
 export EDITOR="vi"
