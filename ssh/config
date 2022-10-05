@@ -62,6 +62,10 @@ Host winston-stage
     User ec2-user
     ProxyCommand aws-bastion %h %p ec2-user@bastion.stage.intofilm.org ~/.ssh/intofilm-stage intofilm-development
 
+Host winston-production
+    User ec2-user
+    ProxyCommand aws-bastion %h %p ec2-user@bastion.intofilm.org ~/.ssh/intofilm-production intofilm-production
+
 Host *-intofilm-web-canary
     User ec2-user
     ProxyCommand aws-bastion %h %p ec2-user@bastion.canary.intofilm.org ~/.ssh/intofilm-canary intofilm-development
