@@ -1,4 +1,5 @@
 Host *
+  IgnoreUnknown UseKeychain
   controlpath /tmp/ssh-%r@%h:%p
   AddKeysToAgent yes
   UseKeychain yes
