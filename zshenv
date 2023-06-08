@@ -48,3 +48,4 @@ export AWS_SDK_LOAD_CONFIG=true
 export NPM_CONFIG_SAVE=true
 export NPM_CONFIG_SAVE_EXACT=true
 export NPM_CONFIG_ACCESS=public
+export NPM_CONFIG_GIT_TAG_VERSION=false
