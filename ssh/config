@@ -3,6 +3,8 @@ Host *
   controlpath /tmp/ssh-%r@%h:%p
   AddKeysToAgent yes
   UseKeychain yes
+  HostKeyAlgorithms +ssh-rsa
+  PubkeyAcceptedKeyTypes +ssh-rsa
 
 Host bitbucket.org
     HostName bitbucket.org
