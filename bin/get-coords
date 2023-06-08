@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+QUERY=${1}
+
+KEY=XA19-ZG83-GG91-TC84
+ID=$(https api.addressy.com/Geocoding/UK/Find/v2.00/json3ex.ws Key==${KEY} Location=="${QUERY}" | jq -r ".Items[0].Id")
+
+COORDS=$(https api.addressy.com/Geocoding/UK/Retrieve/v2.00/json3.ws Key==$KEY Id==$ID)
+
+echo "Lat Lon for ${QUERY}:"
+echo $COORDS | jq -r ".Items[0].Latitude, .Items[0].Longitude"

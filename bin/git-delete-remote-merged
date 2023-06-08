@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# Delete all remote branches that have been merged into develop. Stolen partially from
+#
+# https://salferrarello.com/git-delete-merged-branches-from-remote/
+
+git branch --all --merged remotes/origin/develop | grep -v -e 'master\|main\|develop\|canary\|HEAD' | grep "remotes/origin/" | cut -d "/" -f 3-  | xargs -n 1 git push --delete origin
