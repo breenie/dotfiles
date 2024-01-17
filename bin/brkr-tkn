@@ -50,9 +50,9 @@ export AWS_PROFILE=$AWS_PROFILE
 
 secret=$(aws ssm get-parameter --name "/genesis/www-intofilm-web-${env}/INTOFILM_BROKER_API_AUTH_KEY_PRIVATE" | jq -cr ".Parameter.Value")
 
-payload=$(echo "{\"user_id\": \"${user_id}\", \"territory\": \"${territory}\", \"user_agent\": \"${user_agent}\"}" | jq 'del(.[] | select(. == "" or . == null))')
+payload=$(echo "{\"user_id\": \"${user_id}\", \"territory\": \"${territory}\", \"user_agent\": \"${user_agent}\"}" | jq -c 'del(.[] | select(. == "" or . == null))')
 
 TMP=$(mktemp -d)
 echo $secret | base64 -d > "$TMP"/RS256.pem
 
-jwt encode --alg RS256 --exp 1year --secret "@${TMP}/RS256.pem" "{\"https://www.intofilm.org/jwt/claims\":${payload}}"
+jwt encode --alg RS256 --exp=1year --secret "@${TMP}/RS256.pem" "{\"https://www.intofilm.org/jwt/claims\":${payload}}"
