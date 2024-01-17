@@ -2,5 +2,6 @@
 !ssh/config
 ssh/*
 !config/httpie
+!config/1Password/ssh/agent.toml
 config/*
 alfredapp/Alfred.alfredpreferences/remote/*

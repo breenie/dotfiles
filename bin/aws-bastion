@@ -1,5 +1,5 @@
 #!/bin/sh
 
-export AWS_PROFILE="${5-default}"
+export AWS_PROFILE="${4-default}"
 
-ssh-bastion "$(aws-instance-by-name $1 | jq -r '.PrivateDnsName')" $2 $3 $4 
+ssh-bastion "$(aws-instance-by-name $1 | jq -r '.PrivateDnsName')" $2 $3 
