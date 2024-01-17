@@ -4,9 +4,10 @@
 	# fileMode = false
 	editor = vim
 	ignoreCase = false
+  # editor = code --wait
 
 [user]
-	name = Chris Breen
+	name = Chris B
 	email = breenie@users.noreply.github.com
 
 [color]
@@ -21,21 +22,28 @@
 [difftool "Araxis"]
 	path = /Applications/Araxis Merge.app/Contents/Utilities/compare
 
-[diff]
-	tool = Araxis
+[mergetool "Araxis"]
+	path = /Applications/Araxis Merge.app/Contents/Utilities/compare
+	
+[difftool "vscode"]
+  cmd = code --wait --diff $LOCAL $REMOTE
+
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
 
 [difftool]
 	prompt = false
 
-[mergetool "Araxis"]
-	path = /Applications/Araxis Merge.app/Contents/Utilities/compare
-
 [mergetool]
+	tool = vscode
 	prompt = false
 	keepBackup = true
 
+[diff]
+  tool = vscode
+
 [merge]
-	tool = Araxis
+  tool = vscode
 
 [github]
 	user = breenie
