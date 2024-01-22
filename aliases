@@ -5,5 +5,5 @@ alias python=python3
 # alias http="http --verify=\"$(mkcert --CAROOT)/rootCA.pem\""
 # alias https="https --verify=\"$(mkcert --CAROOT)/rootCA.pem\""
 
-alias composer56='docker run -it --rm -v $HOME/.ssh:/root/.ssh -v "$PWD":/usr/src/myapp -v $HOME/.composer:/root/.composer -w /usr/src/myapp breenie/php-composer composer' 
-alias composer72='docker run -it --rm -v $HOME/.ssh:/root/.ssh -v "$PWD":/usr/src/myapp -v $HOME/.composer:/root/.composer -w /usr/src/myapp breenie/php-composer-72 composer' 
+alias composer56='docker run -it --rm -v /run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock -e SSH_AUTH_SOCK="/run/host-services/ssh-auth.sock" -v $HOME/.ssh:/root/.ssh -v "$PWD":/usr/src/myapp -v $HOME/.composer:/root/.composer -w /usr/src/myapp breenie/php-composer composer' 
+alias composer72='docker run -it --rm -v /run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock -e SSH_AUTH_SOCK="/run/host-services/ssh-auth.sock" -v $HOME/.ssh:/root/.ssh -v "$PWD":/usr/src/myapp -v $HOME/.composer:/root/.composer -w /usr/src/myapp breenie/php-composer-72 composer' 
