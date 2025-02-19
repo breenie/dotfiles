@@ -209,19 +209,24 @@ chflags nohidden ~/Library
 ###############################################################################
 
 # Configure the dock
-defaults write com.apple.dock autohide -int 1
-defaults write com.apple.dock tilesize -int 36
-defaults write com.apple.dock largesize -int 71
-defaults write com.apple.dock magnification -bool yes
 defaults write com.apple.dock size-immutable -bool yes
 defaults write com.apple.dock show-recents -bool no
 defaults write com.apple.dock persistent-others -array
+
+# See hammerspoon/init.lua for the replacement of these values.
+# defaults write com.apple.dock autohide -int 1
+# defaults write com.apple.dock tilesize -int 36
+# defaults write com.apple.dock largesize -int 71
+# defaults write com.apple.dock magnification -bool yes
 
 # Change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "scale"
 
 # Minimize windows into their application’s icon
 defaults write com.apple.dock minimize-to-application -bool true
+
+# Configure tiling
+defaults write com.apple.WindowManager EnableTiledWindowMargins -bool false
 
 ###############################################################################
 # Safari & WebKit                                                             #
