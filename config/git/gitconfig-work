@@ -1,0 +1,7 @@
+[user]
+  email = chris.breen@intofilm.org
+  signingkey = 5A761F9A6A58DD8918B870DD93915D341C9B75BE
+
+[gpg]
+  format = openpgp
+  program = /opt/homebrew/bin/gpg

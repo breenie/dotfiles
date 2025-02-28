@@ -9,7 +9,25 @@
 [user]
 	name = Chris B
 	email = breenie@users.noreply.github.com
-	signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC82HdoIzz0KTHB8I1CsIyBS5xWe4tLPT47K/q2Y+jw9em+gun6OAyeK/2jTsSQazQCC4P5d6puDfexSQwKW8ElOy1fLzL6kHCizahChNyvVy/jkFc06gIxwcj5PKVKotXd1BzxaupE0we41syct/2B6y39H+FQOnhiaViQOOEplYpiXT2eOSzvt5CQDmM8Y8GNzoYUTWBGQ1nxKCk2oXh0+HVZbUEKmHoTXg13RN3+fitLVefSCYKjMxh6nJzJEdl09knNgSCbyz1KQXmip90eV+QNKry/PlZxiOl4w1vzwQvYP6LoiGDrqbmkVrmR+iOrVOJge+xrHpi0k7oVx591
+	signingkey = ~/.ssh/id_ed25519_signing.pub
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+  allowedSignersFile = ~/.config/ssh/allowed_signers
+
+	# format = openpgp
+	# program = /opt/homebrew/bin/gpg
+
+# [gpg "ssh"]
+# 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+	
+[commit]
+	gpgsign = true
+
+[includeIf "gitdir:~/Developer/work/"]
+	path = ~/.config/git/gitconfig-work
 
 [color]
 	diff = auto
@@ -30,7 +48,7 @@
   cmd = code --wait --diff $LOCAL $REMOTE
 
 [mergetool "vscode"]
-  cmd = code --wait $MERGED
+  cmd = code --wait --diff $BASE $LOCAL $REMOTE $MERGED
 
 [difftool]
 	prompt = false
@@ -78,11 +96,3 @@
 [alias]
 	ver = describe --tags --always HEAD
 
-[gpg]
-	format = ssh
-
-[gpg "ssh"]
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
-	
-[commit]
-	gpgsign = true

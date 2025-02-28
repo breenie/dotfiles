@@ -6,71 +6,49 @@ Host *
   HostKeyAlgorithms +ssh-rsa
   PubkeyAcceptedKeyTypes +ssh-rsa
 
-  # TODO remove this once you've confirmed 1p $SSH_AUTH_SOCK works
-  # IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-
 Host bitbucket.org
+    User git
     HostName bitbucket.org
     ForwardAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/id_ed25519
 
+Host github.com
+    User git
+    HostName github.com
+    ForwardAgent yes
+    IdentitiesOnly yes
+    IdentityFile ~/.ssh/id_ed25519
+
+# Bastions and jumpboxes
 Host bastion.*.fnuk.org
+    IdentityFile ~/.ssh/meatballs
     ForwardAgent yes
     Port 22
     User ec2-user
 
 Host bastion.stage.intofilm.org
+    IdentityFile ~/.ssh/intofilm-stage
     ForwardAgent yes
-    Port 22
-    User ec2-user
-
-Host bastion.canary.intofilm.org
-    ForwardAgent yes
-    IdentitiesOnly yes
-    IdentityFile ~/.ssh/intofilm-canary
     Port 22
     User ec2-user
 
 Host bastion.intofilm.org
+    IdentityFile ~/.ssh/intofilm-production
     ForwardAgent yes
     Port 22
     User ec2-user
 
-Host bourne-stage
-    User ec2-user
-    ProxyCommand aws-bastion %h %p ec2-user@bastion.stage.intofilm.org ntofilm-development
-
-Host bourne-canary
-    User ec2-user
-    ProxyCommand aws-bastion %h %p ec2-user@bastion.canary.intofilm.org intofilm-development
-
-Host winston-canary
-    User ec2-user
-    ProxyCommand aws-bastion %h %p ec2-user@bastion.canary.intofilm.org intofilm-development
-
-Host bourne-production
+# Hosts
+Host bourne-production winston-production *-intofilm-web-production
     User ec2-user
     ProxyCommand aws-bastion %h %p ec2-user@bastion.intofilm.org intofilm-production
+    IdentityFile ~/.ssh/intofilm-production
 
-Host winston-stage
+Host bourne-stage winston-stage *-intofilm-web-stage
     User ec2-user
     ProxyCommand aws-bastion %h %p ec2-user@bastion.stage.intofilm.org intofilm-development
-
-Host winston-production
-    User ec2-user
-    ProxyCommand aws-bastion %h %p ec2-user@bastion.intofilm.org intofilm-production
-
-Host *-intofilm-web-canary
-    User ec2-user
-    ProxyCommand aws-bastion %h %p ec2-user@bastion.canary.intofilm.org intofilm-development
-
-Host *-intofilm-web-stage
-    User ec2-user
-    ProxyCommand aws-bastion %h %p ec2-user@bastion.stage.intofilm.org intofilm-development
-
-Host *-intofilm-web-production
-    User ec2-user
-    ProxyCommand aws-bastion %h %p ec2-user@bastion.intofilm.org intofilm-production
-
+    
 Host *-stage
     User ec2-user
     ProxyCommand aws-bastion %h %p ec2-user@bastion.stage.fnuk.org intofilm-legacy
@@ -81,13 +59,45 @@ Host *-prod
 
 # AWS Atlassian apps
 Host bastion.intranet.intofilm.org
-    HostName bastion.intranet.intofilm.org
+    IdentityFile ~/.ssh/insecure-deployer
     ForwardAgent yes
     Port 22
     User ec2-user
 
 Host bamboo
     Hostname 10.128.0.90
+    # Figure out why the hell this host needs the identity as well as the bastion :/
+    IdentityFile ~/.ssh/insecure-deployer
     ForwardAgent yes
     User ec2-user
-    ProxyCommand ssh -W %h:%p bastion.intranet.intofilm.org
+    ProxyJump bastion.intranet.intofilm.org
+
+#                 \||/
+#                 |  @___oo
+#       /\  /\   / (__,,,,|  
+#      ) /^\) ^\/ _)
+#      )   /^\/   _)  
+#      )   _ /  / _)
+#  /\  )/\/ ||  | )_)  
+# <  >      |(,,) )__)  
+#  ||      /    \)___)   
+#  | \____(      )___) )  
+#   \______(_______)_)
+    
+#      ~~~🔥🔥🔥~~~
+#   HERE BE DRAGONS!
+#      ~~~🔥🔥🔥~~~
+
+# Experimental SSM session manager
+
+#host i-* mi-* *-eap
+#    ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartSSHSession --parameters 'portNumber=%p' --region eu-west-1 --profile intofilm-development"
+    #ProxyCommand sh -c "aws ssm start-session --target %h --document-name AWS-StartPortForwardingSessionToRemoteHost --parameters 'host=%h,portNumber=%p,localPortNumber=%p' --region eu-west-1 --profile intofilm-development"
+
+# Host bourne-canary
+#     ForwardAgent yes
+#     User ec2-user
+#     # Hostname localhost
+#     # Port 2222
+#     # ProxyCommand sh -c "fck-nat %h \$((RANDOM %% (65535-1024+1) + 1024)) %p canary intofilm-development %r"
+#     ProxyCommand fck-nat %h 2222 %p canary intofilm-development %r
