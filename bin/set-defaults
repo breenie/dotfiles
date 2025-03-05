@@ -370,8 +370,8 @@ defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 64
   </dict>
 "
 
-# Set the alfed sync folder
-defaults write com.runningwithcrayons.Alfred-Preferences syncfolder -string "~/.dotfiles/alfredapp"
+# Set the alfed sync folder (this doesn't seem to work anymore)
+defaults write com.runningwithcrayons.Alfred-Preferences syncfolder -string "~/.config/alfredapp"
 
 ###############################################################################
 # Xcode                                                                       #

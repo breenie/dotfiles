@@ -1,8 +1,9 @@
 !ssh/*.pub
 !ssh/config
 ssh/*
+!config/
+!config/alfredapp
 !config/git/gitconfig-work
 !config/httpie
-!config/1Password/ssh/agent.toml
 config/*
 alfredapp/Alfred.alfredpreferences/remote/*
