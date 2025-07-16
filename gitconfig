@@ -96,3 +96,5 @@
 [alias]
 	ver = describe --tags --always HEAD
 
+[fetch]
+	prune = true
