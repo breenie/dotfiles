@@ -1,11 +1,3 @@
-Host *
-  IgnoreUnknown UseKeychain
-  controlpath /tmp/ssh-%r@%h:%p
-  AddKeysToAgent yes
-  UseKeychain yes
-  HostKeyAlgorithms +ssh-rsa
-  PubkeyAcceptedKeyTypes +ssh-rsa
-
 Host bitbucket.org
     User git
     HostName bitbucket.org
@@ -21,6 +13,10 @@ Host github.com
     IdentityFile ~/.ssh/id_ed25519
 
 # Bastions and jumpboxes
+Host bastion.*
+    GSSAPIAuthentication no
+    PreferredAuthentications publickey
+
 Host bastion.*.fnuk.org
     IdentityFile ~/.ssh/meatballs
     ForwardAgent yes
@@ -38,12 +34,18 @@ Host bastion.intofilm.org
     ForwardAgent yes
     Port 22
     User ec2-user
+    IdentitiesOnly yes
 
 # Hosts
 Host bourne-production winston-production *-intofilm-web-production
     User ec2-user
     ProxyCommand aws-bastion %h %p ec2-user@bastion.intofilm.org intofilm-production
     IdentityFile ~/.ssh/intofilm-production
+
+Host bourne-eap
+    User ec2-user
+    ProxyCommand aws-bastion %h %p ec2-user@bastion.intofilm.org intofilm-production
+    IdentityFile ~/.ssh/intofilm-eap
 
 Host bourne-stage winston-stage *-intofilm-web-stage
     User ec2-user
@@ -101,3 +103,15 @@ Host bamboo
 #     # Port 2222
 #     # ProxyCommand sh -c "fck-nat %h \$((RANDOM %% (65535-1024+1) + 1024)) %p canary intofilm-development %r"
 #     ProxyCommand fck-nat %h 2222 %p canary intofilm-development %r
+
+# Global settings
+
+Host *
+  IgnoreUnknown UseKeychain
+  ControlMaster auto
+  ControlPath /tmp/ssh-%r@%h:%p
+  ControlPersist 5m
+  AddKeysToAgent yes
+  UseKeychain yes
+  HostKeyAlgorithms +ssh-rsa
+  PubkeyAcceptedKeyTypes +ssh-rsa
