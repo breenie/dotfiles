@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+set -e
+
+# if [ "$#" -ne 1 ]; then
+#   echo Starts a port forwarding session.
+#   echo $"Usage: $(basename $0) <instance-name> <local-port> [environment] [profile] [remote-port] "
+#   exit 1
+# fi
+
+INSTANCE_NAME=$1
+LOCAL_PORT_NUMBER=$2
+ENVIRONMENT="${3-stage}"
+PORT_NUMBER=${5-22}
+
+export AWS_PROFILE="${4-default}"
+
+HOST=$(aws-instance-by-name $INSTANCE_NAME | jq -r '.PrivateDnsName')
+
+echo "Connecting to $HOST on port $PORT_NUMBER with local port $LOCAL_PORT_NUMBER in environment $ENVIRONMENT" >&2
+
+NAT=$(aws ssm describe-instance-information --region eu-west-1 \
+  --filters "Key=tag:Environment,Values=${ENVIRONMENT}" \
+  --query "InstanceInformationList[].InstanceId" | jq -r '.[0]')
+
+aws ssm start-session \
+  --target $NAT \
+  --region eu-west-1 \
+  --document-name AWS-StartPortForwardingSessionToRemoteHost \
+  --parameters host="$HOST",portNumber="$PORT_NUMBER",localPortNumber="$LOCAL_PORT_NUMBER" &
+
+while ! aws ssm describe-sessions --state Active --output text | grep -q $NAT; do
+  echo "Waiting for session to start..." >&2
+  sleep 1
+done
+
+# fg

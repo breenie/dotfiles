@@ -50,3 +50,4 @@ export NPM_CONFIG_SAVE_EXACT=true
 export NPM_CONFIG_ACCESS=public
 export NPM_CONFIG_GIT_TAG_VERSION=false
 export NODE_OPTIONS="--no-deprecation"
+export DOCKER_DEFAULT_PLATFORM=linux/x86_64
