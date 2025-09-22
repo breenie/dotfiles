@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+function usage {
+  cat <<EOF
+Flips the dock profile between MBP and Studio Display.
+
+Usage: $(basename "$0") mbp|sd
+EOF
+}
+
+case "$1" in
+  # Default profile (MacBook)
+  mbp)
+    autohide=1
+    tilesize=36
+    largesize=71
+    ;;
+  # Studio Display profile
+  sd)
+    autohide=0
+    tilesize=50
+    largesize=64
+    ;;
+  *)
+    usage
+    exit 1
+    ;;
+esac
+
+
+# Apply settings
+defaults write com.apple.dock autohide -int "${autohide}"
+defaults write com.apple.dock magnification -int $(
+  [[ "${tilesize}" -ne "${largesize}" ]] && echo 1 || echo 0
+)
+defaults write com.apple.dock largesize -int "${largesize}"
+defaults write com.apple.dock tilesize -int "${tilesize}"
+
+killall Dock 2>/dev/null || true
+echo "[dock-profile] Applied profile: $1"
+exit 0
